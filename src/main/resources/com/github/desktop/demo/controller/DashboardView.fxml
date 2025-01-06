@@ -19,12 +19,13 @@
         <Separator prefWidth="200.0"/>
         <Button fx:id="buttonDataUser" text="Data User"/>
         <Button fx:id="buttonDataBook" text="Data Book" onAction="#onNavigateToBook"/>
+        <Button fx:id="buttonDataWeb" text="Data Web" onAction="#onNavigateToWeb"/>
         <Separator prefWidth="200.0"/>
         <Button fx:id="buttonSignOut" text="Sign Out"/>
     </VBox>
 
-    <ScrollPane prefHeight="200.0" prefWidth="200.0">
-        <VBox fx:id="container" prefHeight="200.0" prefWidth="415.0"/>
+    <ScrollPane prefHeight="200.0" prefWidth="400.0">
+        <VBox fx:id="container" prefHeight="200.0" prefWidth="400.0"/>
     </ScrollPane>
 
 </SplitPane>

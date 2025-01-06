@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class DashboardView {
     public Button buttonDataBook;
 
     @FXML
+    public Button buttonDataWeb;
+
+    @FXML
     public Button buttonSignOut;
 
     @FXML
@@ -46,5 +50,20 @@ public class DashboardView {
         AnchorPane node = fxWeaver.loadView(ListBookView.class);
         container.getChildren().clear();
         container.getChildren().add(node);
+    }
+
+    @FXML
+    public void onNavigateToWeb(ActionEvent actionEvent) {
+        System.out.println("Button Data Web Clicked!");
+        AnchorPane node = fxWeaver.loadView(SomeWebView.class);
+        container.getChildren().clear();
+        container.getChildren().add(node);
+
+        setTitle("Data Web");
+    }
+
+    private void setTitle(String title) {
+        Stage stage = (Stage) container.getScene().getWindow();
+        stage.setTitle(title);
     }
 }
