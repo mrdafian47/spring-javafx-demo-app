@@ -4,6 +4,7 @@ build/
 target/
 logs/
 gradle.properties
+resources/database/db-test.mv.db
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
