@@ -15,6 +15,14 @@ java {
 
 repositories {
 	mavenCentral()
+	maven {
+		name = "GitHubPackages"
+		url = uri("https://maven.pkg.github.com/Asli-RI/spring-commons")
+		credentials {
+			username = project.findProperty("user")
+			password = project.findProperty("token")
+		}
+	}
 }
 
 dependencies {
@@ -33,12 +41,20 @@ dependencies {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
 	}
 
+	// ASLI Lib
+	implementation("com.asliri.core:spring-sdk:0.0.0.11") {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+
 	// Logging
 	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
 
 	// JavaFX
 	implementation 'org.openjfx:javafx-controls:23.0.1'
 	implementation 'org.openjfx:javafx-fxml:23.0.1'
+
+	// MaterialFX
+	implementation 'io.github.palexdev:materialfx:11.17.0'
 
 	// SpringBoot JavaFX
 	implementation 'net.rgielen:javafx-weaver-spring-boot-starter:1.3.0'

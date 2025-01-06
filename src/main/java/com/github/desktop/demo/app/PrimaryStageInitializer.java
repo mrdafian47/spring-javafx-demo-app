@@ -1,6 +1,6 @@
 package com.github.desktop.demo.app;
 
-import com.github.desktop.demo.controller.MainWindow;
+import com.github.desktop.demo.controller.DashboardView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
@@ -21,9 +21,9 @@ public class PrimaryStageInitializer implements ApplicationListener<StageReadyEv
     @Override
     public void onApplicationEvent(StageReadyEvent event) {
         Stage stage = event.getStage();
-        Scene scene = new Scene(fxWeaver.loadView(MainWindow.class), 400, 300);
+        Scene scene = new Scene(fxWeaver.loadView(DashboardView.class), 800, 600);
         stage.setScene(scene);
-        stage.setTitle("Main");
+        stage.setTitle("Dashboard");
         stage.show();
     }
 }
