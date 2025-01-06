@@ -23,6 +23,7 @@ public class PrimaryStageInitializer implements ApplicationListener<StageReadyEv
         Stage stage = event.getStage();
         Scene scene = new Scene(fxWeaver.loadView(MainWindow.class), 400, 300);
         stage.setScene(scene);
+        stage.setTitle("Main");
         stage.show();
     }
 }
