@@ -50,6 +50,8 @@ public class DashboardView {
         AnchorPane node = fxWeaver.loadView(ListBookView.class);
         container.getChildren().clear();
         container.getChildren().add(node);
+
+        setTitle("Data Book");
     }
 
     @FXML

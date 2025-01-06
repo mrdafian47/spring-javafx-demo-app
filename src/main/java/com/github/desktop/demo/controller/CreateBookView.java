@@ -83,6 +83,7 @@ public class CreateBookView {
 
         context.publishEvent(new StageBookEvent(resultEntity));
         stage.close();
+        clearData();
     }
 
     @FXML
@@ -93,5 +94,13 @@ public class CreateBookView {
     public void show() {
         stage.setTitle("Create New Book");
         stage.show();
+    }
+
+    public void clearData() {
+        titleProperty.set(null);
+        descriptionProperty.set(null);
+        authorProperty.set(null);
+        genreProperty.set(null);
+        publishYearProperty.set(0);
     }
 }
