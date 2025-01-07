@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
+@Log4j2
 @Component
 @FxmlView
 public class ListBookView implements ApplicationListener<StageBookEvent> {
@@ -71,7 +73,8 @@ public class ListBookView implements ApplicationListener<StageBookEvent> {
             BookEntity entity = param.getValue();
 
             button.setOnAction(event -> {
-                System.out.println("Book ID: " + entity.getId());
+                log.debug("Button Edit Clicked!");
+                log.debug("Edit Book with ID: {}", entity.getId());
                 updateBookView.getController().show(entity.getId());
             });
 
@@ -83,13 +86,16 @@ public class ListBookView implements ApplicationListener<StageBookEvent> {
             BookEntity entity = param.getValue();
 
             button.setOnAction(event -> {
-                System.out.println("Book ID: " + entity.getId());
+                log.debug("Button Delete Clicked!");
+                log.debug("Delete Book with ID: {}", entity.getId());
+
                 Alert alert = new Alert(
                         Alert.AlertType.WARNING,
                         "Do you want to delete this book?",
                         ButtonType.YES,
                         ButtonType.NO
                 );
+
                 Optional<ButtonType> resultOpt = alert.showAndWait();
                 if (resultOpt.isPresent()) {
                     ButtonType resultButtonType = resultOpt.get();
@@ -111,13 +117,13 @@ public class ListBookView implements ApplicationListener<StageBookEvent> {
 
     @FXML
     public void onCreateButton(ActionEvent actionEvent) {
-        System.out.println("Button Create New Clicked!");
+        log.debug("Button Create New Clicked!");
         createBookView.getController().show();
     }
 
     @Override
     public void onApplicationEvent(StageBookEvent event) {
-        System.out.println("Success Create or Update Book. Reload Data");
+        log.debug("Success Create or Update Book. Reload Data");
         loadData();
     }
 

@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Log4j2
 @Component
 @FxmlView
 public class UpdateBookView {
@@ -76,6 +78,7 @@ public class UpdateBookView {
 
     @FXML
     public void onUpdateButton(ActionEvent actionEvent) {
+        log.debug("Button Update Clicked!");
         BookEntity resultEntity = service.updateBook(
                 BookEntity.builder()
                         .id(bookId)
@@ -94,6 +97,7 @@ public class UpdateBookView {
 
     @FXML
     public void onCancelButton(ActionEvent actionEvent) {
+        log.debug("Button Cancel Clicked!");
         stage.close();
     }
 

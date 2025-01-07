@@ -16,11 +16,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
+@Log4j2
 @Component
 @FxmlView
 public class CreateBookView {
@@ -71,6 +73,7 @@ public class CreateBookView {
 
     @FXML
     public void onSubmitButton(ActionEvent actionEvent) {
+        log.debug("Button Submit Clicked!");
         BookEntity resultEntity = service.createBook(
                 BookEntity.builder()
                         .title(titleProperty.get())
@@ -88,6 +91,7 @@ public class CreateBookView {
 
     @FXML
     public void onCancelButton(ActionEvent actionEvent) {
+        log.debug("Button Cancel Clicked!");
         stage.close();
     }
 

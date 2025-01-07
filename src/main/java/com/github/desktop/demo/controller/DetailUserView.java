@@ -11,9 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.stereotype.Component;
 
+@Log4j2
 @Component
 @FxmlView
 public class DetailUserView {
@@ -69,10 +71,11 @@ public class DetailUserView {
         webEngine.setUserAgent("Demo Web Browser 1.0");
         webEngine.getLoadWorker().stateProperty().addListener((observableValue, oldState, newState) -> {
             if (newState == Worker.State.RUNNING) {
-                System.out.println("Start running other task");
+                log.debug("Start running other task");
             }
-            System.out.println("Old State: " + oldState.toString());
-            System.out.println("New State: " + newState.toString());
+
+            log.debug("Old State: {}", oldState.toString());
+            log.debug("New State: {}", newState.toString());
         });
     }
 
@@ -108,7 +111,7 @@ public class DetailUserView {
         Double latitude = Double.parseDouble(coordinateDTO.getLatitude());
         Double longitude = Double.parseDouble(coordinateDTO.getLongitude());
         String userLocationUrl = generateLocationUrlByCoordinate(latitude, longitude);
-        System.out.println("User Location URL: " + userLocationUrl);
+        log.debug("User Location URL: {}", userLocationUrl);
         webEngine.load(userLocationUrl);
     }
 

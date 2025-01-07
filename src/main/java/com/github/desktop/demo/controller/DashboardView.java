@@ -6,11 +6,13 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+@Log4j2
 @Component
 @FxmlView
 public class DashboardView {
@@ -46,7 +48,7 @@ public class DashboardView {
 
     @FXML
     public void onNavigateToUser(ActionEvent actionEvent) {
-        System.out.println("Button Data User Clicked!");
+        log.debug("Button Data User Clicked!");
         setTitle("Data User");
         Node node = fxWeaver.loadView(ListUserView.class);
         container.getChildren().clear();
@@ -55,7 +57,7 @@ public class DashboardView {
 
     @FXML
     public void onNavigateToBook(ActionEvent actionEvent) {
-        System.out.println("Button Data Book Clicked!");
+        log.debug("Button Data Book Clicked!");
         setTitle("Data Book");
         Node node = fxWeaver.loadView(ListBookView.class);
         container.getChildren().clear();
@@ -64,7 +66,7 @@ public class DashboardView {
 
     @FXML
     public void onNavigateToWeb(ActionEvent actionEvent) {
-        System.out.println("Button Data Web Clicked!");
+        log.debug("Button Data Web Clicked!");
         setTitle("Data Web");
         Node node = fxWeaver.loadView(SomeWebView.class);
         container.getChildren().clear();

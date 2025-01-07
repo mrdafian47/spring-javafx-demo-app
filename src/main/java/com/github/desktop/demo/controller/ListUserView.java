@@ -12,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lombok.extern.log4j.Log4j2;
 import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j2
 @Component
 @FxmlView
 public class ListUserView {
@@ -61,7 +63,7 @@ public class ListUserView {
 
             Button button = new Button("View");
             button.setOnAction(event -> {
-                System.out.println("Button View Clicked!");
+                log.debug("Button View Clicked!");
                 detailUserView.getController().show(userDTO);
             });
 
