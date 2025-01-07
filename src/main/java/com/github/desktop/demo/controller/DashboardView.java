@@ -2,8 +2,8 @@ package com.github.desktop.demo.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
@@ -45,23 +45,30 @@ public class DashboardView {
     }
 
     @FXML
-    public void onNavigateToBook(ActionEvent actionEvent) {
-        System.out.println("Button Data Book Clicked!");
-        AnchorPane node = fxWeaver.loadView(ListBookView.class);
+    public void onNavigateToUser(ActionEvent actionEvent) {
+        System.out.println("Button Data User Clicked!");
+        setTitle("Data User");
+        Node node = fxWeaver.loadView(ListUserView.class);
         container.getChildren().clear();
         container.getChildren().add(node);
+    }
 
+    @FXML
+    public void onNavigateToBook(ActionEvent actionEvent) {
+        System.out.println("Button Data Book Clicked!");
         setTitle("Data Book");
+        Node node = fxWeaver.loadView(ListBookView.class);
+        container.getChildren().clear();
+        container.getChildren().add(node);
     }
 
     @FXML
     public void onNavigateToWeb(ActionEvent actionEvent) {
         System.out.println("Button Data Web Clicked!");
-        AnchorPane node = fxWeaver.loadView(SomeWebView.class);
+        setTitle("Data Web");
+        Node node = fxWeaver.loadView(SomeWebView.class);
         container.getChildren().clear();
         container.getChildren().add(node);
-
-        setTitle("Data Web");
     }
 
     private void setTitle(String title) {

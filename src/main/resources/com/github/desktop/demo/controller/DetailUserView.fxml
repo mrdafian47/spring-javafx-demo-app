@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.WebView?>
+<ScrollPane fx:id="userDetailDialog" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.desktop.demo.controller.DetailUserView"
+            fitToWidth="true">
+
+    <VBox alignment="CENTER" spacing="8.0">
+        <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+        </padding>
+
+        <!-- START Section One -->
+        <HBox>
+
+            <HBox prefWidth="300.0" alignment="CENTER">
+                <ImageView fx:id="userImageView" fitHeight="90.0" fitWidth="90.0"/>
+            </HBox>
+
+            <VBox prefWidth="16.0"/>
+
+            <VBox prefWidth="300.0">
+                <HBox>
+                    <Label prefWidth="100.0" text="Title">
+                        <font>
+                            <Font name="Arial Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="userTitleLabel">
+                        <font>
+                            <Font name="Arial" size="12.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox>
+                    <Label prefWidth="100.0" text="Firstname">
+                        <font>
+                            <Font name="Arial Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="userFirstLabel">
+                        <font>
+                            <Font name="Arial" size="12.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox>
+                    <Label prefWidth="100.0" text="Lastname">
+                        <font>
+                            <Font name="Arial Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="userLastLabel">
+                        <font>
+                            <Font name="Arial" size="12.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox prefHeight="16.0" />
+
+                <HBox>
+                    <Label prefWidth="100.0" text="Email">
+                        <font>
+                            <Font name="Arial Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="userEmailLabel">
+                        <font>
+                            <Font name="Arial" size="12.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+                <HBox>
+                    <Label prefWidth="100.0" text="Phone">
+                        <font>
+                            <Font name="Arial Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="userPhoneLabel">
+                        <font>
+                            <Font name="Arial" size="12.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+
+            </VBox>
+
+        </HBox>
+        <!-- END Section One -->
+
+        <Separator prefWidth="600.0"/>
+
+        <!-- START Section Two -->
+        <VBox>
+
+            <HBox>
+
+                <VBox prefWidth="300.0">
+                    <HBox>
+                        <Label prefWidth="100.0" text="Address">
+                            <font>
+                                <Font name="Arial Bold" size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="userAddressLabel">
+                            <font>
+                                <Font name="Arial" size="12.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <HBox>
+                        <Label prefWidth="100.0" text="City">
+                            <font>
+                                <Font name="Arial Bold" size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="userCityLabel">
+                            <font>
+                                <Font name="Arial" size="12.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <HBox>
+                        <Label prefWidth="100.0" text="State">
+                            <font>
+                                <Font name="Arial Bold" size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="userStateLabel">
+                            <font>
+                                <Font name="Arial" size="12.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+                </VBox>
+
+                <VBox prefWidth="16.0"/>
+
+                <VBox prefWidth="300.0">
+                    <HBox>
+                        <Label prefWidth="100.0" text="Country">
+                            <font>
+                                <Font name="Arial Bold" size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="userCountryLabel">
+                            <font>
+                                <Font name="Arial" size="12.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+
+                    <HBox>
+                        <Label prefWidth="100.0" text="Postcode">
+                            <font>
+                                <Font name="Arial Bold" size="12.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="userPostCodeLabel">
+                            <font>
+                                <Font name="Arial" size="12.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+        <!-- END Section Two -->
+
+        <Separator prefWidth="600.0"/>
+
+        <!-- START Section Three -->
+        <VBox>
+
+            <Label prefWidth="100.0" text="Location">
+                <font>
+                    <Font name="Arial Bold" size="12.0"/>
+                </font>
+            </Label>
+
+            <VBox prefHeight="16.0"/>
+
+            <WebView fx:id="userMapWebView" />
+
+        </VBox>
+        <!-- END Section Three -->
+
+    </VBox>
+
+</ScrollPane>
