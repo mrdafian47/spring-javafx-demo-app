@@ -53,6 +53,9 @@ dependencies {
 	implementation 'org.openjfx:javafx-controls:23.0.1'
 	implementation 'org.openjfx:javafx-fxml:23.0.1'
 
+	// JNA
+	implementation 'net.java.dev.jna:jna:5.16.0'
+
 	// MaterialFX
 	implementation 'io.github.palexdev:materialfx:11.17.0'
 
@@ -77,3 +80,11 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task copyDylib(type: Copy) {
+	from 'native'
+	include '*.dylib'
+	into "$buildDir/libs"
+}
+
+build.dependsOn(copyDylib)
