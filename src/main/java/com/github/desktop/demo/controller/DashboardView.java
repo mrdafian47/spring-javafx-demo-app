@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lombok.extern.log4j.Log4j2;
+import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxWeaver;
 import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class DashboardView {
 
     @Autowired
     private FxWeaver fxWeaver;
+
+    @Autowired
+    private FxControllerAndView<PerbarindoWebView, AnchorPane> perbarindoWebView;
 
     @FXML
     public Button buttonSignIn;
@@ -34,6 +39,9 @@ public class DashboardView {
 
     @FXML
     public Button buttonDataWeb;
+
+    @FXML
+    public Button buttonDataWebPerbarindo;
 
     @FXML
     public Button buttonSignOut;
@@ -71,6 +79,12 @@ public class DashboardView {
         Node node = fxWeaver.loadView(SomeWebView.class);
         container.getChildren().clear();
         container.getChildren().add(node);
+    }
+
+    @FXML
+    public void onNavigateToPerbarindo(ActionEvent actionEvent) {
+        log.debug("Button Data Web Perbarindo Clicked!");
+        perbarindoWebView.getController().show();
     }
 
     private void setTitle(String title) {

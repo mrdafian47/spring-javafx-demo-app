@@ -20,6 +20,7 @@
         <Button fx:id="buttonDataUser" text="Data User" onAction="#onNavigateToUser"/>
         <Button fx:id="buttonDataBook" text="Data Book" onAction="#onNavigateToBook"/>
         <Button fx:id="buttonDataWeb" text="Data Web" onAction="#onNavigateToWeb"/>
+        <Button fx:id="buttonDataWebPerbarindo" text="Data Web Perbarindo" onAction="#onNavigateToPerbarindo"/>
         <Separator prefWidth="200.0"/>
         <Button fx:id="buttonSignOut" text="Sign Out"/>
     </VBox>
